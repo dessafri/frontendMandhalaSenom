@@ -1,0 +1,53 @@
+<template>
+  <div class="card col-lg-3">
+    <div class="row">
+      <div class="col col-2">
+        <img :src="image" />
+      </div>
+      <div class="text col col-8">
+        <h3>{{ jumlah }}</h3>
+        <br />
+        <span>{{ keterangan }}</span>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'infoButton',
+  components: {},
+  props: { image: String, jumlah: String, keterangan: String },
+}
+</script>
+
+<style scoped>
+.tentang .info .card {
+  border: none;
+  width: auto;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.tentang .info .card .text {
+  margin-left: 30px;
+}
+
+.tentang .info .card .text h3 {
+  font-weight: bold;
+  font-size: 40px;
+  margin-bottom: -30px;
+}
+
+.tentang .info .card .text span {
+  display: inline-block;
+  font-weight: 500;
+  margin-left: 5px;
+}
+</style>
