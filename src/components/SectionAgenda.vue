@@ -73,4 +73,22 @@ export default {
   flex-wrap: wrap;
   margin-bottom: 100px;
 }
+@media (max-width: 768px) {
+  .agenda {
+    color: #1c2e60;
+    display: block;
+  }
+  .agenda h2 {
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  .agenda .card {
+    margin-bottom: 50px;
+    width: 100%;
+  }
+  .agenda .card .card-header {
+    background-color: orange;
+  }
+}
 </style>

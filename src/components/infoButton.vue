@@ -2,7 +2,7 @@
   <div class="card col-lg-3">
     <div class="row">
       <div class="col col-2">
-        <img :src="image" />
+        <img :src="`https://img.icons8.com/wired/64/000000/${image}`" />
       </div>
       <div class="text col col-8">
         <h3>{{ jumlah }}</h3>

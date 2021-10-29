@@ -107,4 +107,34 @@ Vue.use(VueTypedJs)
   width: 50%;
   height: 500px;
 }
+@media (max-width: 768px) {
+  .jumbotron .title {
+    width: 100%;
+    height: 250px;
+  }
+  .jumbotron .tagline {
+    margin-top: 50px;
+    padding: 5px;
+  }
+  .jumbotron .tagline h2 {
+    font-size: 30px;
+  }
+  .jumbotron .animate-navigate {
+    width: 100%;
+    height: 150px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 50px;
+    opacity: 0.2;
+  }
+  .jumbotron .image-animate {
+    display: none;
+  }
+}
 </style>

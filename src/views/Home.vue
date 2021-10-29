@@ -6,6 +6,9 @@
     <SectionTentang />
     <SectionAgenda />
     <SectionMentor />
+    <SectionCoretanVue />
+    <SectionDokumentasiVue />
+    <FooterVue />
   </div>
 </template>
 
@@ -18,6 +21,9 @@ import Jumbotron from '@/components/Jumbotron.vue'
 import SectionTentang from '../components/SectionTentang.vue'
 import SectionAgenda from '../components/SectionAgenda.vue'
 import SectionMentor from '../components/SectionMentor.vue'
+import SectionCoretanVue from '../components/SectionCoretan.vue'
+import SectionDokumentasiVue from '../components/SectionDokumentasi.vue'
+import FooterVue from '../components/Footer.vue'
 
 export default {
   name: 'Home',
@@ -29,11 +35,332 @@ export default {
     SectionTentang,
     SectionAgenda,
     SectionMentor,
+    SectionCoretanVue,
+    SectionDokumentasiVue,
+    FooterVue,
   },
 }
 </script>
 Jumbotron
 
-<style scoped>
+<style>
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+  display: block;
+}
+
+.navbar .navbar-brand {
+  font-weight: bold;
+}
+
+.navbar .navbar-nav .active {
+  font-weight: bold;
+}
+
+.navbar a {
+  display: inline-block;
+  color: #1c2e60 !important;
+}
+
+.tentang {
+  color: #1c2e60;
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.tentang h1 {
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.tentang p {
+  -webkit-box-ordinal-group: 3;
+  -ms-flex-order: 2;
+  order: 2;
+}
+
+.tentang #map {
+  width: 50%;
+  height: 350px;
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+  border-radius: 30px;
+}
+
+.tentang .visimisi {
+  -webkit-box-ordinal-group: 4;
+  -ms-flex-order: 3;
+  order: 3;
+  width: 100%;
+  margin-top: 50px;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.tentang .visimisi h2 {
+  font-weight: bold;
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+
+.tentang .visimisi p,
+.tentang .visimisi i {
+  font-size: 30px;
+}
+
+.tentang .visimisi .misi li {
+  font-size: 20px;
+}
+
+.tentang .info {
+  -webkit-box-ordinal-group: 5;
+  -ms-flex-order: 4;
+  order: 4;
+  width: 100%;
+  height: 150px;
+  margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.tentang .info .card {
+  border: none;
+  width: auto;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.tentang .info .card .text {
+  margin-left: 30px;
+}
+
+.tentang .info .card .text h3 {
+  font-weight: bold;
+  font-size: 40px;
+  margin-bottom: -30px;
+}
+
+.tentang .info .card .text span {
+  display: inline-block;
+  font-weight: 500;
+  margin-left: 5px;
+}
+
+.agenda {
+  color: #1c2e60;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-bottom: 100px;
+}
+
+.agenda .card {
+  margin-top: 10px;
+  width: 32%;
+  height: auto;
+}
+
+.mentor {
+  margin-bottom: 100px;
+  color: #1c2e60;
+}
+
+.mentor .card-animate .card {
+  height: auto;
+  border: none;
+}
+
+.mentor .card-animate .card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  display: block;
+  margin: auto;
+}
+
+.coretan {
+  width: 100%;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: start;
+  margin-bottom: 50px;
+  color: #1c2e60;
+}
+
+.coretan .card {
+  width: 100%;
+  height: 220px;
+  border: none;
+  margin-top: 20px;
+}
+
+.coretan .card img {
+  width: 30%;
+  height: auto;
+}
+
+.coretan .card .card-body {
+  margin-top: -30px;
+}
+
+.coretan .card .card-body a,
+.coretan .card .card-body h5 {
+  display: block;
+  text-decoration: none;
+  font-size: 24px;
+  color: #1c2e60;
+  margin-left: 0;
+}
+
+.coretan a,
+.coretan button.btn-more {
+  text-decoration: none;
+  display: block;
+  width: 250px;
+  height: 50px;
+  margin-top: 20px;
+  margin-left: 30%;
+}
+
+.dokumentasi {
+  color: #1c2e60;
+}
+
+.dokumentasi h2 {
+  font-weight: bold;
+}
+
+.dokumentasi .video {
+  margin-top: 50px;
+}
+
+.dokumentasi .video h3 {
+  margin-bottom: 20px;
+}
+
+.dokumentasi .video .video-animate {
+  width: 100%;
+  height: auto;
+}
+
+.dokumentasi .video .video-animate .card {
+  height: 400px;
+  display: block;
+  margin: auto;
+  border: none;
+}
+
+.dokumentasi .video .video-animate .card iframe {
+  display: block;
+  margin: auto;
+}
+
+.dokumentasi .video .btn {
+  display: block;
+  width: 150px;
+  height: 50px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.dokumentasi .foto {
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.dokumentasi .foto .foto-animate {
+  padding-top: 40px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.dokumentasi .foto .foto-animate .card {
+  width: 420px;
+  height: 220px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border: none;
+  margin-left: 10px;
+}
+
+.dokumentasi .foto .foto-animate .card img {
+  width: 500px;
+  height: 220px;
+  display: block;
+  margin: auto;
+  margin-left: 15px;
+}
+
+.dokumentasi .foto .btn {
+  display: block;
+  width: 150px;
+  height: 50px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.footer {
+  width: 100%;
+  height: 270px;
+  background-color: #1c2e60;
+  color: white;
+  padding-top: 20px;
+}
+
+.footer h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.footer img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
 </style>

@@ -13,7 +13,9 @@
         Pendidikan, meningkatkan minat baca masyarakat sekitar, dan menumbuhkan
         kecintaan di bidang literasi.
       </p>
-      <div id="map" class="col col-lg-5"></div>
+      <div id="map" class="col col-lg-5">
+        <MapVue />
+      </div>
       <div class="visimisi d-flex justify-content-between">
         <h2 class="text-center col col-12">Visi & Misi</h2>
         <div class="visi col col-lg-6 col-10 text-start">
@@ -44,22 +46,9 @@
         </div>
       </div>
       <div class="info text-start">
-        <infoButton
-          image="https://img.icons8.com/wired/64/000000/crowd.png"
-          jumlah="15"
-          keterangan="MENTOR"
-        />
-        <infoButton
-          image="https://img.icons8.com/wired/64/000000/open-book.png"
-          jumlah="100"
-          keterangan="BUKU"
-        />
-        >
-        <infoButton
-          image="https://img.icons8.com/wired/64/000000/children.png"
-          jumlah="90"
-          keterangan="ANAK"
-        />
+        <infoButton image="crowd.png" jumlah="15" keterangan="MENTOR" />
+        <infoButton image="open-book.png" jumlah="100" keterangan="BUKU" />
+        <infoButton image="children.png" jumlah="90" keterangan="ANAK" />
       </div>
     </div>
   </div>
@@ -68,9 +57,11 @@
 <script>
 import TitleSection from './TitleSection.vue'
 import infoButton from './infoButton.vue'
+import MapVue from './Map.vue'
+
 export default {
   name: 'SectionTentang',
-  components: { TitleSection, infoButton },
+  components: { TitleSection, infoButton, MapVue },
 }
 </script>
 
@@ -151,5 +142,63 @@ export default {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .tentang {
+    width: 100%;
+    height: auto;
+    margin-top: 150px;
+    margin-bottom: 400px;
+    display: block;
+  }
+  .tentang p {
+    margin-top: 10px;
+  }
+  .tentang #map {
+    margin-top: 30px;
+    width: 100%;
+    height: 250px;
+    margin-bottom: 50px;
+  }
+  .tentang .visi {
+    margin-left: 15px;
+  }
+  .tentang .misi p {
+    font-size: 30px;
+  }
+  .tentang .info {
+    width: 100%;
+  }
+  .tentang .info .card {
+    border-radius: 10px;
+    -webkit-box-shadow: -2px 0px 5px 0px rgba(0, 0, 0, 0.37);
+    box-shadow: -2px 0px 5px 0px rgba(0, 0, 0, 0.37);
+    width: 100%;
+    height: 150px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-top: 10px;
+    padding-left: 10px;
+    border: none;
+  }
+  .tentang .info .card img {
+    margin-top: 10px;
+  }
+  .tentang .info .card .text {
+    width: auto;
+    height: auto;
+  }
+  .tentang .info .card .text h3 {
+    font-weight: bold;
+    font-size: 45px;
+    margin-bottom: -20px;
+  }
+  .tentang .info .card .text span {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 20px;
+  }
 }
 </style>

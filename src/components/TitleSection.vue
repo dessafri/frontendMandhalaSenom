@@ -8,3 +8,11 @@ export default {
   props: { msg: String },
 }
 </script>
+
+<style scoped>
+@media (max-width: 768px) {
+  h1 {
+    font-size: 20px;
+  }
+}
+</style>
