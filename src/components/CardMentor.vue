@@ -1,13 +1,9 @@
 <template>
   <div class="card" style="width: 18rem;">
-    <img
-      :src="require(`@/assets/${image}`)"
-      class="card-img-top"
-      alt="picture mentor"
-    />
+    <img :src="image" class="card-img-top" alt="picture mentor" />
     <div class="card-body">
       <h5 class="card-title">{{ nama }}</h5>
-      <span>{{ jabatan }}</span>
+      <span v-html="jabatan"></span>
     </div>
   </div>
 </template>

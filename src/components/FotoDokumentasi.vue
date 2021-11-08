@@ -1,17 +1,13 @@
 <template>
   <div class="card text-center" style="width: 18rem;">
-    <img
-      :src="require(`@/assets/${image}`)"
-      class="card-img-top"
-      alt="picture mentor"
-    />
+    <img :src="image" class="card-img-top" :alt="keterangan" />
   </div>
 </template>
 
 <script>
 export default {
   name: 'FotoDokumentasi',
-  props: { image: String },
+  props: { image: String, keterangan: String },
 }
 </script>
 

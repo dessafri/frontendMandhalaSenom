@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <div class="mentor">
-      <TitleSection msg="Mentor" />
+    <TitleSection msg="Mentor" />
+    <div class="mentor" v-if="Object.keys(mentor).length > 0">
       <carousel
         class="card-animate d-flex justify-content-center"
-        :items="3"
+        :items="1"
         :loop="true"
         :autoplay="true"
         :dots="false"
@@ -14,13 +14,17 @@
           600: { items: 3, nav: false },
         }"
       >
-        <CardMentor image="pic-1.jpg" nama="Ach Rofiqi" jabatan="Ketua TBM" />
-        <CardMentor image="pic-1.jpg" nama="Ach Rofiqi" jabatan="Ketua TBM" />
-        <CardMentor image="pic-1.jpg" nama="Ach Rofiqi" jabatan="Ketua TBM" />
-        <CardMentor image="pic-1.jpg" nama="Ach Rofiqi" jabatan="Ketua TBM" />
-        <CardMentor image="pic-1.jpg" nama="Ach Rofiqi" jabatan="Ketua TBM" />
-        <CardMentor image="pic-1.jpg" nama="Ach Rofiqi" jabatan="Ketua TBM" />
+        <div class="mentor" v-for="mentor in mentor[0].data" :key="mentor.id">
+          <CardMentor
+            :image="mentor.photo"
+            :nama="mentor.nama"
+            :jabatan="mentor.jabatan"
+          />
+        </div>
       </carousel>
+    </div>
+    <div class="col-12 text-center" v-else>
+      Data Tidak Di temukan
     </div>
   </div>
 </template>
@@ -29,9 +33,27 @@
 import TitleSection from './TitleSection.vue'
 import carousel from 'vue-owl-carousel'
 import CardMentor from './CardMentor.vue'
+import axios from 'axios'
 export default {
   name: 'SectionMentor',
-  components: { CardMentor, TitleSection, carousel },
+  components: { TitleSection, CardMentor, carousel },
+  data() {
+    return {
+      mentor: [],
+    }
+  },
+  mounted() {
+    axios
+      .get('http://127.0.0.1:8000/api/mentor/')
+      .then((response) => {
+        this.mentor.push(response.data)
+      })
+      .catch((error) => {
+        console.log(error)
+        this.errored = true
+      })
+      .finally(() => (this.loading = false))
+  },
 }
 </script>
 

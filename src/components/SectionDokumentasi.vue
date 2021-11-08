@@ -27,22 +27,27 @@
       </div>
       <div class="foto">
         <h3 class="text-center">#FOTO KEGIATAN</h3>
-        <carousel
-          class="foto-animate"
-          :items="3"
-          :loop="true"
-          :autoplay="true"
-          :dots="false"
-          :nav="false"
-          :responsive="{
-            0: { items: 1, nav: false },
-            600: { items: 3, nav: false },
-          }"
-        >
-          <FotoDokumentasiVue image="jumb-1.jpg" />
-          <FotoDokumentasiVue image="jumb-2.jpg" />
-          <FotoDokumentasiVue image="jumb-3.jpg" />
-        </carousel>
+        <div class="foto" v-if="Object.keys(foto).length > 0">
+          <carousel
+            class="foto-animate"
+            :items="3"
+            :loop="true"
+            :autoplay="true"
+            :dots="false"
+            :nav="false"
+            :responsive="{
+              0: { items: 1, nav: false },
+              600: { items: 3, nav: false },
+            }"
+          >
+            <div class="foto" v-for="foto in foto[0].data" :key="foto.id">
+              <FotoDokumentasiVue :image="foto.photo" :keterangan="foto.nama" />
+            </div>
+          </carousel>
+        </div>
+        <div class="col col-12 text-center" v-else>
+          Foto Belum Ada
+        </div>
         <ButtonMobileVue msg="Lebih Banyak" />
       </div>
     </div>
@@ -55,6 +60,7 @@ import TitleSection from './TitleSection.vue'
 import VideoDokumentasiVue from './VideoDokumentasi.vue'
 import carousel from 'vue-owl-carousel'
 import ButtonMobileVue from './ButtonMobile.vue'
+import axios from 'axios'
 
 export default {
   name: 'SectionDokumentasi',
@@ -64,6 +70,23 @@ export default {
     FotoDokumentasiVue,
     carousel,
     ButtonMobileVue,
+  },
+  data() {
+    return {
+      foto: [],
+    }
+  },
+  mounted() {
+    axios
+      .get('http://127.0.0.1:8000/api/dokumentasi/')
+      .then((response) => {
+        this.foto.push(response.data)
+      })
+      .catch((error) => {
+        console.log(error)
+        this.errored = true
+      })
+      .finally(() => (this.loading = false))
   },
 }
 </script>

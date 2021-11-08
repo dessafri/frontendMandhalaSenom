@@ -1,10 +1,10 @@
 <template>
   <div class="card col col-lg-4">
     <div class="card-header">
-      <h5>{{ title }}</h5>
+      <h4>{{ title }}</h4>
     </div>
     <div class="card-body">
-      <p>
+      <p v-html="keterangan">
         {{ keterangan }}
       </p>
     </div>
@@ -24,7 +24,10 @@ export default {
 <style scoped>
 .agenda .card {
   margin-top: 10px;
-  width: 32%;
+  width: 350px;
   height: auto;
+}
+.agenda h4 {
+  font-weight: 400;
 }
 </style>
