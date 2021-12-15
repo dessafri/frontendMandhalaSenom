@@ -27,7 +27,6 @@ export default {
 .mentor .card-animate .card img {
   width: 150px;
   height: 150px;
-  border-radius: 100%;
   display: block;
   margin: auto;
 }

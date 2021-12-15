@@ -39,6 +39,7 @@
 import Vue from 'vue'
 import VueTypedJs from 'vue-typed-js'
 import HeroCarousel from './HeroCarousel.vue'
+
 export default {
   name: 'Jumbotron',
   components: { HeroCarousel },
@@ -103,9 +104,9 @@ Vue.use(VueTypedJs)
 }
 
 .jumbotron .image-animate img {
-  border-top-left-radius: 80px;
   width: 50%;
   height: 500px;
+  border-top-left-radius: 100px;
 }
 @media (max-width: 768px) {
   .jumbotron .title {

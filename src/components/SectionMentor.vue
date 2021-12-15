@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <TitleSection msg="Mentor" />
+  <div class="container" id="mentor" style="margin-top: 30px;">
+    <TitleSection msg="Pengurus" />
     <div class="mentor" v-if="Object.keys(mentor).length > 0">
       <carousel
         class="card-animate d-flex justify-content-center"
@@ -23,9 +23,23 @@
         </div>
       </carousel>
     </div>
-    <div class="col-12 text-center" v-else>
-      Data Tidak Di temukan
+    <div class="loading d-flex" style="width: 100%; margin-top: 10px;" v-else>
+      <div class="d-flex justify-content-center" style="margin: auto;">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
     </div>
+    <div
+      class="buttonData"
+      style="display: block; margin: auto;"
+      v-if="Object.keys(mentor).length > 0"
+    >
+      <router-link to="/pengurus">
+        <Button msg="Lebih Banyak Pengurus" />
+      </router-link>
+    </div>
+    <div class="button" v-else></div>
   </div>
 </template>
 
@@ -33,10 +47,11 @@
 import TitleSection from './TitleSection.vue'
 import carousel from 'vue-owl-carousel'
 import CardMentor from './CardMentor.vue'
+import Button from './Button.vue'
 import axios from 'axios'
 export default {
   name: 'SectionMentor',
-  components: { TitleSection, CardMentor, carousel },
+  components: { TitleSection, CardMentor, carousel, Button },
   data() {
     return {
       mentor: [],
@@ -59,12 +74,17 @@ export default {
 
 <style scoped>
 .mentor {
-  margin-bottom: 100px;
+  /* margin-bottom: 100px; */
   color: #1c2e60;
+  margin-bottom: 10px;
 }
 
 .card-animate {
   margin-top: 50px;
+}
+.buttonData {
+  width: 100%;
+  height: 80px;
 }
 @media (max-width: 768px) {
   .mentor {

@@ -1,38 +1,72 @@
 <template>
   <div class="container">
-    <div class="coretan d-flex flex-wrap">
+    <div class="coretan d-flex flex-wrap" style="margin-top: 30px;">
       <TitleSection msg="#CORETANMANDHALASENOM" />
-      <CardCoretanVue
-        image="artikel-1.jpg"
-        title="Card Title"
-        keterangan="Some quick example text to build on the card title and make up the bulk of the card's content."
-      />
-      <CardCoretanVue
-        image="artikel-1.jpg"
-        title="Card Title"
-        keterangan="Some quick example text to build on the card title and make up the bulk of the card's content."
-      />
-      <CardCoretanVue
-        image="artikel-1.jpg"
-        title="Card Title"
-        keterangan="Some quick example text to build on the card title and make up the bulk of the card's content."
-      />
-      <ButtonMobileVue msg="Lebih Banyak" />
+      <div class="coretan" v-if="Object.keys(artikel).length > 0">
+        <div
+          class="coretan"
+          v-for="(artikel, index) in artikel[0].data"
+          :key="artikel.id"
+        >
+          <CardCoretanVue
+            :image="artikel.photo"
+            :title="artikel.nama"
+            :keterangan="artikel.keterangan"
+            :id="artikel.id"
+            v-if="index <= 3"
+          />
+        </div>
+      </div>
+      <div class="loading d-flex" style="width: 100%; margin-top: 10px;" v-else>
+        <div class="d-flex justify-content-center" style="margin: auto;">
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="button"
+        style="display: block; margin: auto;"
+        v-if="Object.keys(artikel).length > 0"
+      >
+        <router-link to="/coretanmandhala">
+          <Button msg="Lebih Banyak Artikel" class="mt-4" />
+        </router-link>
+      </div>
+      <div class="button" v-else></div>
     </div>
   </div>
 </template>
 
 <script>
-import ButtonMobileVue from './ButtonMobile.vue'
+import Button from './Button.vue'
 import CardCoretanVue from './CardCoretan.vue'
 import TitleSection from './TitleSection.vue'
+import axios from 'axios'
 
 export default {
   name: 'SectionCoretan',
   components: {
     TitleSection,
     CardCoretanVue,
-    ButtonMobileVue,
+    Button,
+  },
+  data() {
+    return {
+      artikel: [],
+    }
+  },
+  mounted() {
+    axios
+      .get('http://127.0.0.1:8000/api/artikel/')
+      .then((response) => {
+        this.artikel.push(response.data)
+      })
+      .catch((error) => {
+        console.log(error)
+        this.errored = true
+      })
+      .finally(() => (this.loading = false))
   },
 }
 </script>
@@ -43,29 +77,22 @@ export default {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: start;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   color: #1c2e60;
 }
-/* .coretan a,
-.coretan button.btn-more {
-  text-decoration: none;
-  display: block;
-  width: 250px;
-  height: 50px;
-  margin-top: 20px;
-  margin-left: 30%;
-} */
 @media (max-width: 768px) {
   .coretan {
+    display: flex;
     margin-bottom: 50px;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    flex-wrap: wrap;
   }
   .coretan .card {
     border: none;
     margin-top: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
     width: 75%;
     height: 375px;
   }

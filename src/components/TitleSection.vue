@@ -12,7 +12,8 @@ export default {
 <style scoped>
 @media (max-width: 768px) {
   h1 {
-    font-size: 20px;
+    font-size: 30px;
+    font-weight: bold;
   }
 }
 </style>

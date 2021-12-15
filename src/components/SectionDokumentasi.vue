@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="dokumentasi">
+    <div class="dokumentasi" id="dokumentasi">
       <TitleSection msg="Dokumentasi Kegiatan" />
       <div class="video">
         <h3 class="text-center col col-12">#VIDEO KEGIATAN</h3>
@@ -19,15 +19,19 @@
             600: { items: 1, nav: false },
           }"
         >
-          <VideoDokumentasiVue title="Special Treatmen" idVideo="phsIlqKhI6k" />
-          <VideoDokumentasiVue title="Special Treatmen" idVideo="4S-338h7lRY" />
-          <VideoDokumentasiVue title="Special Treatmen" idVideo="Gc3oSPHo95A" />
+          <VideoDokumentasiVue title="Special Treatmen" idVideo="wP4EEXBhbiU" />
+          <VideoDokumentasiVue title="Special Treatmen" idVideo="iOfqFfcjNv4" />
+          <VideoDokumentasiVue title="Special Treatmen" idVideo="3UJqvTc1sRQ" />
         </carousel>
-        <ButtonMobileVue msg="Lebih Banyak" />
+        <router-link to="/dokumentasi">
+          <Button msg="Lebih Banyak Video" />
+        </router-link>
       </div>
       <div class="foto">
-        <h3 class="text-center">#FOTO KEGIATAN</h3>
-        <div class="foto" v-if="Object.keys(foto).length > 0">
+        <h3 class="text-center">
+          #FOTO KEGIATAN
+        </h3>
+        <div class="fotoData" v-if="Object.keys(foto).length > 0">
           <carousel
             class="foto-animate"
             :items="3"
@@ -45,21 +49,38 @@
             </div>
           </carousel>
         </div>
-        <div class="col col-12 text-center" v-else>
-          Foto Belum Ada
+        <div
+          class="loading d-flex"
+          style="width: 100%; margin-top: 20px;"
+          v-else
+        >
+          <div class="d-flex justify-content-center" style="margin: auto;">
+            <div class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
         </div>
-        <ButtonMobileVue msg="Lebih Banyak" />
+        <div
+          class="button"
+          style="display: block; margin: auto;"
+          v-if="Object.keys(foto).length > 0"
+        >
+          <router-link to="/dokumentasikegiatan">
+            <Button msg="Lebih Banyak Foto" />
+          </router-link>
+        </div>
+        <div class="button" v-else></div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Button from './Button.vue'
 import FotoDokumentasiVue from './FotoDokumentasi.vue'
 import TitleSection from './TitleSection.vue'
 import VideoDokumentasiVue from './VideoDokumentasi.vue'
 import carousel from 'vue-owl-carousel'
-import ButtonMobileVue from './ButtonMobile.vue'
 import axios from 'axios'
 
 export default {
@@ -69,7 +90,7 @@ export default {
     VideoDokumentasiVue,
     FotoDokumentasiVue,
     carousel,
-    ButtonMobileVue,
+    Button,
   },
   data() {
     return {
@@ -90,3 +111,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.fotoData {
+  margin-top: 0px;
+}
+</style>

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="tentang">
+    <div class="tentang" id="tentang">
       <TitleSection msg="Mandhala Senom" />
       <p class="col col-lg-5 text-start">
         Taman Baca Mandhala Senom ini merupakan taman baca masyarakat yang

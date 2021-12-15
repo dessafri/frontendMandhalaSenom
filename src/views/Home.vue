@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" id="home">
     <Header />
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <Jumbotron />
@@ -24,6 +24,7 @@ import SectionMentor from '../components/SectionMentor.vue'
 import SectionCoretanVue from '../components/SectionCoretan.vue'
 import SectionDokumentasiVue from '../components/SectionDokumentasi.vue'
 import FooterVue from '../components/Footer.vue'
+import $ from 'jquery'
 
 export default {
   name: 'Home',
@@ -39,12 +40,28 @@ export default {
     SectionDokumentasiVue,
     FooterVue,
   },
+  mounted() {
+    $('.scroll').on('click', function (e) {
+      let tujuan = $(this).attr('href')
+
+      let elemenTujuan = $(tujuan)
+
+      $('html, body').animate(
+        {
+          scrollTop: elemenTujuan.offset().top - 600,
+        },
+        1500,
+        'easeInOutExpo',
+      )
+      console.log(elemenTujuan)
+      e.preventDefault()
+    })
+  },
 }
 </script>
-Jumbotron
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@100;500&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -66,9 +83,13 @@ html {
   font-weight: bold;
 }
 
-.navbar a {
+.navbar a,
+span {
   display: inline-block;
   color: #1c2e60 !important;
+}
+.navbar span {
+  cursor: pointer;
 }
 
 .tentang {
@@ -246,7 +267,7 @@ html {
   margin-left: 0;
 }
 
-.coretan a,
+/* .coretan a,
 .coretan button.btn-more {
   text-decoration: none;
   display: block;
@@ -254,10 +275,11 @@ html {
   height: 50px;
   margin-top: 20px;
   margin-left: 30%;
-}
+} */
 
 .dokumentasi {
   color: #1c2e60;
+  margin-top: 50px;
 }
 
 .dokumentasi h2 {
@@ -290,23 +312,19 @@ html {
 }
 
 .dokumentasi .video .btn {
-  display: block;
-  width: 150px;
-  height: 50px;
-  margin: auto;
-  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .dokumentasi .foto {
   width: 100%;
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 .dokumentasi .foto .foto-animate {
-  padding-top: 40px;
+  margin-top: -10px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -338,11 +356,7 @@ html {
 }
 
 .dokumentasi .foto .btn {
-  display: block;
-  width: 150px;
-  height: 50px;
-  margin: auto;
-  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .footer {
