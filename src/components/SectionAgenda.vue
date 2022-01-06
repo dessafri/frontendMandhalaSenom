@@ -27,13 +27,13 @@
     <div
       class="button"
       style="display: block; margin: auto;"
-      v-if="Object.keys(agenda).length > 0"
+      v-if="Object.keys(agenda).length > 1"
     >
       <router-link to="/agendamandhala">
         <Button msg="Lebih Banyak Agenda" />
       </router-link>
     </div>
-    <div class="button" v-else></div>
+    <div v-else class="fw-bold">Data Tidak Di Temukan</div>
   </div>
 </template>
 
@@ -52,7 +52,9 @@ export default {
   },
   mounted() {
     axios
-      .get('http://127.0.0.1:8000/api/agenda/')
+      .get('https://mandhalasenom.my.id/api/agenda', {
+        headers: {},
+      })
       .then((response) => {
         this.agenda.push(response.data)
       })
@@ -66,8 +68,12 @@ export default {
 </script>
 
 <style scoped>
+#agenda {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
 .agenda {
-  color: #1c2e60;
+  color: #264653;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -78,7 +84,7 @@ export default {
 }
 @media (max-width: 768px) {
   .agenda {
-    color: #1c2e60;
+    color: #264653;
     display: flex;
     justify-content: center;
   }

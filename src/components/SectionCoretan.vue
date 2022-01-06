@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" id="coretan">
     <div class="coretan d-flex flex-wrap" style="margin-top: 30px;">
       <TitleSection msg="#CORETANMANDHALASENOM" />
       <div class="coretan" v-if="Object.keys(artikel).length > 0">
@@ -27,13 +27,17 @@
       <div
         class="button"
         style="display: block; margin: auto;"
-        v-if="Object.keys(artikel).length > 0"
+        v-if="Object.keys(artikel).length > 1"
       >
-        <router-link to="/coretanmandhala">
-          <Button msg="Lebih Banyak Artikel" class="mt-4" />
+        <router-link to="/agendamandhala">
+          <Button msg="Lebih Banyak Agenda" />
         </router-link>
       </div>
-      <div class="button" v-else></div>
+      <div v-else class="fw-bold offset-5">
+        <p class="text-center">
+          Data Coretan Di Temukan
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -58,7 +62,9 @@ export default {
   },
   mounted() {
     axios
-      .get('http://127.0.0.1:8000/api/artikel/')
+      .get('https://mandhalasenom.my.id/api/artikel', {
+        headers: {},
+      })
       .then((response) => {
         this.artikel.push(response.data)
       })

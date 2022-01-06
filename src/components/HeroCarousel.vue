@@ -25,6 +25,7 @@
         </div>
       </div>
     </div>
+    <div class="borderfoto"></div>
   </div>
 </template>
 
@@ -42,7 +43,7 @@ export default {
   },
   mounted() {
     axios
-      .get('http://127.0.0.1:8000/api/dokumentasi/')
+      .get('https://mandhalasenom.my.id/api/dokumentasi')
       .then((response) => {
         this.foto.push(response.data)
       })
@@ -59,6 +60,23 @@ export default {
 img {
   width: 50%;
   height: 500px;
-  border-top-left-radius: 100px;
+  border-top-left-radius: 200px;
+  z-index: 9999999999999;
+  position: relative;
+}
+.hero {
+  border-top-left-radius: 200px;
+  overflow: hidden;
+}
+.borderfoto {
+  width: 600px;
+  height: 505px;
+  border-top-left-radius: 250px;
+  border: 5px solid white;
+  position: absolute;
+  top: 0;
+  margin-top: 155px;
+  margin-left: -40px;
+  z-index: 0;
 }
 </style>

@@ -74,7 +74,7 @@ export default {
   },
   mounted() {
     axios
-      .get('http://127.0.0.1:8000/api/dokumentasi/')
+      .get('https://mandhalasenom.my.id/api/dokumentasi')
       .then((response) => {
         this.foto.push(response.data)
       })

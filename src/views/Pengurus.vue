@@ -124,7 +124,7 @@ export default {
   },
   mounted() {
     axios
-      .get('http://127.0.0.1:8000/api/mentor/', {
+      .get('https://mandhalasenom.my.id/api/mentor', {
         params: {
           jabatan: 'pengurus',
         },
@@ -138,7 +138,7 @@ export default {
       })
       .finally(() => (this.loading = false))
     axios
-      .get('http://127.0.0.1:8000/api/mentor/', {
+      .get('https://mandhalasenom.my.id/api/mentor', {
         params: {
           jabatan: 'relawan',
         },

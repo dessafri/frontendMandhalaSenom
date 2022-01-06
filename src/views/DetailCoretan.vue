@@ -55,7 +55,7 @@ export default {
   },
   mounted() {
     axios
-      .get('http://127.0.0.1:8000/api/artikel/', {
+      .get('https://mandhalasenom.my.id/api/artikel', {
         params: {
           id: this.$attrs.id,
         },

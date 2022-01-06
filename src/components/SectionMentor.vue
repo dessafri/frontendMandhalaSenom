@@ -33,13 +33,13 @@
     <div
       class="buttonData"
       style="display: block; margin: auto;"
-      v-if="Object.keys(mentor).length > 0"
+      v-if="Object.keys(mentor).length > 1"
     >
       <router-link to="/pengurus">
         <Button msg="Lebih Banyak Pengurus" />
       </router-link>
     </div>
-    <div class="button" v-else></div>
+    <div v-else class="fw-bold">Data Tidak Di Temukan</div>
   </div>
 </template>
 
@@ -59,7 +59,9 @@ export default {
   },
   mounted() {
     axios
-      .get('http://127.0.0.1:8000/api/mentor/')
+      .get('https://mandhalasenom.my.id/api/mentor', {
+        headers: {},
+      })
       .then((response) => {
         this.mentor.push(response.data)
       })
@@ -73,9 +75,12 @@ export default {
 </script>
 
 <style scoped>
+#mentor {
+  padding-bottom: 30px;
+}
 .mentor {
   /* margin-bottom: 100px; */
-  color: #1c2e60;
+  color: #264653;
   margin-bottom: 10px;
 }
 
@@ -88,7 +93,7 @@ export default {
 }
 @media (max-width: 768px) {
   .mentor {
-    color: #1c2e60;
+    color: #264653;
   }
   .mentor h2 {
     margin-bottom: 30px;

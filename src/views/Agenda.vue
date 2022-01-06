@@ -95,7 +95,7 @@ export default {
   },
   mounted() {
     axios
-      .get('http://127.0.0.1:8000/api/agenda/')
+      .get('https://mandhalasenom.my.id/api/agenda')
       .then((response) => {
         this.agenda.push(response.data)
       })

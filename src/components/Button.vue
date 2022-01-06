@@ -1,5 +1,5 @@
 <template>
-  <button class="btn btn-outline-primary" type="button">
+  <button class="btn" type="button">
     {{ msg }}
   </button>
 </template>
@@ -11,3 +11,12 @@ export default {
   },
 }
 </script>
+<style scoped>
+.btn {
+  width: 200px;
+  height: 80 !important;
+  border-radius: 30px;
+  background-color: #14a6a0 !important;
+  color: white !important;
+}
+</style>

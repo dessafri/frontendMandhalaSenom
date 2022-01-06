@@ -28,7 +28,7 @@
         </router-link>
       </div>
       <div class="foto">
-        <h3 class="text-center">
+        <h3 class="text-center" style="color: #ef3e38;">
           #FOTO KEGIATAN
         </h3>
         <div class="fotoData" v-if="Object.keys(foto).length > 0">
@@ -99,7 +99,9 @@ export default {
   },
   mounted() {
     axios
-      .get('http://127.0.0.1:8000/api/dokumentasi/')
+      .get('https://mandhalasenom.my.id/api/dokumentasi', {
+        headers: {},
+      })
       .then((response) => {
         this.foto.push(response.data)
       })

@@ -45,32 +45,26 @@
           </ul>
         </div>
       </div>
-      <div class="info text-start">
-        <infoButton image="crowd.png" jumlah="15" keterangan="MENTOR" />
-        <infoButton image="open-book.png" jumlah="100" keterangan="BUKU" />
-        <infoButton image="children.png" jumlah="90" keterangan="ANAK" />
-      </div>
     </div>
   </div>
 </template>
 
 <script>
 import TitleSection from './TitleSection.vue'
-import infoButton from './infoButton.vue'
 import MapVue from './Map.vue'
 
 export default {
   name: 'SectionTentang',
-  components: { TitleSection, infoButton, MapVue },
+  components: { TitleSection, MapVue },
 }
 </script>
 
 <style scoped>
 .tentang {
-  color: #1c2e60;
   width: 100%;
   margin-left: 10px;
   margin-right: 10px;
+  margin-top: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -85,12 +79,14 @@ export default {
 .tentang h1 {
   font-weight: bold;
   margin-bottom: 50px;
+  color: #264653;
 }
 
 .tentang p {
   -webkit-box-ordinal-group: 3;
   -ms-flex-order: 2;
   order: 2;
+  color: #14a6a0;
 }
 
 .tentang #map {
@@ -110,12 +106,14 @@ export default {
   margin-top: 50px;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  color: #14a6a0;
 }
 
 .tentang .visimisi h2 {
   font-weight: bold;
   font-size: 35px;
   margin-bottom: 20px;
+  color: #264653;
 }
 
 .tentang .visimisi p,
@@ -125,23 +123,6 @@ export default {
 
 .tentang .visimisi .misi li {
   font-size: 20px;
-}
-
-.tentang .info {
-  -webkit-box-ordinal-group: 5;
-  -ms-flex-order: 4;
-  order: 4;
-  width: 100%;
-  height: 150px;
-  margin-top: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
 }
 
 @media (max-width: 768px) {

@@ -1,13 +1,10 @@
 <template>
   <!-- navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div
-      class="container-fluid"
-      style="display: flex; justify-content: space-between;"
-    >
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
       <router-link
         to="/"
-        class="navbar-brand col col-4"
+        class="navbar-brand col col-2"
         style="text-decoration: none;"
       >
         <a href="#" style="text-decoration: none;">
@@ -27,24 +24,34 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page">
-              Home
-            </a>
+          <li class="nav-item navigate">
+            <router-link :to="{ hash: 'home' }">
+              <a class="nav-link" aria-current="page">
+                Home
+              </a>
+            </router-link>
           </li>
-          <li class="nav-item">
-            <a class="nav-link">Tentang</a>
+          <li class="nav-item navigate">
+            <router-link :to="{ hash: 'tentang' }">
+              <a class="nav-link">Tentang</a>
+            </router-link>
           </li>
-          <li class="nav-item">
-            <a class="nav-link">Agenda</a>
+          <li class="nav-item navigate">
+            <router-link :to="{ hash: 'agenda' }">
+              <a class="nav-link">Agenda</a>
+            </router-link>
           </li>
-          <li class="nav-item">
-            <a class="nav-link">Mentor</a>
+          <li class="nav-item navigate">
+            <router-link :to="{ hash: 'mentor' }">
+              <a class="nav-link">Pengurus</a>
+            </router-link>
           </li>
-          <li class="nav-item">
-            <a class="nav-link">Dokumentasi</a>
+          <li class="nav-item navigate">
+            <router-link :to="{ hash: 'dokumentasi' }">
+              <a class="nav-link">Dokumentasi</a>
+            </router-link>
           </li>
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <span class="nav-link">Kontak</span>
             <div class="dropdown-content">
               <div class="whatsapp">
@@ -76,8 +83,11 @@
                 </a>
               </div>
             </div>
-          </li>
+          </li> -->
         </ul>
+      </div>
+      <div class="kontak">
+        <button class="btn btn-kontak">Hubungi Kami</button>
       </div>
     </div>
   </nav>
@@ -86,15 +96,104 @@
 <script>
 export default {
   name: 'Header',
+  // data() {
+  //   return {
+  //     hover: false,
+  //   }
+  // },
+  // methods: {
+  //   mouseover: function (event) {
+  //     event.target.classList.toggle('aktif')
+  //     // let links = document.querySelectorAll('nav-link')
+  //     // // let data =
+  //     // for (let i = 0; i < links.length; i++) {
+  //     //   if (links[i].event.parentElement.classList.contains('active')) {
+  //     //     links[i].event.target.parentElement.classList.remove('active')
+  //     //   }
+  //     //   links[i].style.opacity = '0.25'
+  //     // }
+
+  //     // this.event.target.parentElement.classList.add('active')
+  //     // this.style.opacity = '1'
+  //     // if (event) {
+  //     //   console.log(event.target.parentElement)
+  //     // }
+  //     // for (let i = 0; i < links.length; i++) {
+  //     //   if (links[i].parentNode..contains('active')) {
+  //     //     links[i].parentNode.classList.remove('active')
+  //     //   }
+  //     //   links[i].style.opacity = '0.25'
+  //     // }
+
+  //     // this.parentNode.classList.add('active')
+  //     // this.style.opacity = '1'
+  //   },
+  //   mouseleave: function (event) {
+  //     event.target.classList.remove('aktif')
+  //   },
+  // },
 }
 </script>
 
 <style scoped>
+.navbar {
+  background-color: #ef3e38 !important;
+  display: flex;
+  justify-content: center;
+  font-family: 'Lato', sans-serif;
+  /* position: absolute; */
+  z-index: 9999999999;
+}
+.navbar .container-fluid {
+  display: flex !important;
+  justify-content: space-around !important;
+}
+
+.navbar .navbar-brand {
+  font-weight: bold;
+}
+.nav-item {
+  padding: 3px;
+}
+.nav-item:hover {
+  border-bottom: 2px solid #14a6a0;
+  transition: all 0.35s ease-in-out;
+  opacity: 1 !important;
+  color: white !important;
+}
+
+.navbar .navbar-nav .active {
+  font-weight: bold;
+}
+
+.nav-item.navigate {
+  opacity: 0.5;
+}
+
+.navbar a,
+span {
+  display: inline-block;
+  color: white !important;
+}
+#navbarNav {
+  margin-left: 100px;
+}
+.navbar span {
+  cursor: pointer;
+}
 .dropdown {
   position: relative;
   display: inline-block;
 }
-
+.btn-kontak {
+  width: 150px;
+  height: 40px;
+  background-color: #14a6a0;
+  border-radius: 30px;
+  left: -50px !important;
+  color: white;
+  font-family: 'Lato', sans-serif;
+}
 .dropdown-content {
   display: none;
   position: absolute;

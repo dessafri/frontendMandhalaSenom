@@ -1,12 +1,15 @@
 <template>
-  <div class="home" id="home">
+  <div id="home">
     <Header />
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <Jumbotron />
     <SectionTentang />
-    <SectionAgenda />
-    <SectionMentor />
-    <SectionCoretanVue />
+    <div class="sectiongabung">
+      <SectionAgenda />
+      <SectionMentor />
+    </div>
+    <div class="sectioncoretan">
+      <SectionCoretanVue />
+    </div>
     <SectionDokumentasiVue />
     <FooterVue />
   </div>
@@ -71,29 +74,22 @@ html {
   font-family: 'Montserrat', sans-serif;
 }
 
-.navbar {
-  display: block;
+.sectiongabung {
+  background-color: #ef3e38;
+  border-bottom-right-radius: 300px;
+  position: relative;
+  z-index: 9999;
 }
-
-.navbar .navbar-brand {
-  font-weight: bold;
-}
-
-.navbar .navbar-nav .active {
-  font-weight: bold;
-}
-
-.navbar a,
-span {
-  display: inline-block;
-  color: #1c2e60 !important;
-}
-.navbar span {
-  cursor: pointer;
+.sectioncoretan {
+  background-color: #2a9d8f;
+  margin-top: -350px;
+  padding-top: 350px;
+  position: relative;
+  z-index: 0;
+  border-bottom-left-radius: 100px;
 }
 
 .tentang {
-  color: #1c2e60;
   width: 100%;
   margin-left: 10px;
   margin-right: 10px;
@@ -111,12 +107,14 @@ span {
 .tentang h1 {
   font-weight: bold;
   margin-bottom: 50px;
+  color: #264653;
 }
 
 .tentang p {
   -webkit-box-ordinal-group: 3;
   -ms-flex-order: 2;
   order: 2;
+  color: #2a9d8f;
 }
 
 .tentang #map {
@@ -278,7 +276,7 @@ span {
 } */
 
 .dokumentasi {
-  color: #1c2e60;
+  color: #264653;
   margin-top: 50px;
 }
 
@@ -292,6 +290,7 @@ span {
 
 .dokumentasi .video h3 {
   margin-bottom: 20px;
+  color: #ef3e38 !important;
 }
 
 .dokumentasi .video .video-animate {
@@ -362,7 +361,7 @@ span {
 .footer {
   width: 100%;
   height: 270px;
-  background-color: #1c2e60;
+  background-color: #ef3e38;
   color: white;
   padding-top: 20px;
 }

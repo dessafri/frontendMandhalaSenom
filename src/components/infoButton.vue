@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style scoped>
-.tentang .info .card {
+.card {
   border: none;
   width: auto;
   height: auto;
@@ -33,19 +33,20 @@ export default {
   -ms-flex-pack: center;
   justify-content: center;
   margin: auto;
+  background-color: transparent;
 }
 
-.tentang .info .card .text {
+.card .text {
   margin-left: 30px;
 }
 
-.tentang .info .card .text h3 {
+.card .text h3 {
   font-weight: bold;
   font-size: 40px;
   margin-bottom: -30px;
 }
 
-.tentang .info .card .text span {
+.card .text span {
   display: inline-block;
   font-weight: 500;
   margin-left: 5px;

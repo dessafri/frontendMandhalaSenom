@@ -59,7 +59,20 @@ const routes = [
 ]
 
 const router = new VueRouter({
+  mode: 'history',
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    console.log(savedPosition)
+    if (to.hash) {
+      return {
+        selector: to.hash,
+        behavior: 'smooth',
+        offset: { x: 0, y: 70 },
+      }
+    } else {
+      return savedPosition || { x: 0, y: 0 }
+    }
+  },
 })
 
 export default router

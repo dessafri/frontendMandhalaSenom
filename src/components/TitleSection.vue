@@ -14,6 +14,7 @@ export default {
   h1 {
     font-size: 30px;
     font-weight: bold;
+    color: #264653 !important;
   }
 }
 </style>
