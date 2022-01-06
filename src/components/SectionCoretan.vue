@@ -33,7 +33,7 @@
           <Button msg="Lebih Banyak Agenda" />
         </router-link>
       </div>
-      <div v-else class="fw-bold offset-5">
+      <div v-else class="fw-bold offset-md-5">
         <p class="text-center">
           Data Coretan Di Temukan
         </p>

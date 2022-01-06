@@ -142,6 +142,9 @@ export default {
     height: 250px;
     margin-bottom: 50px;
   }
+  .tentang .visimisi h2 {
+    margin-top: 30px;
+  }
   .tentang .visi {
     margin-left: 15px;
   }

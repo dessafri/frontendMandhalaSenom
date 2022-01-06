@@ -3,11 +3,18 @@
     <Header />
     <Jumbotron />
     <SectionTentang />
-    <div class="sectiongabung">
+    <div class="sectiongabung d-none d-md-block">
       <SectionAgenda />
       <SectionMentor />
     </div>
-    <div class="sectioncoretan">
+    <div class="sectioncoretan d-none d-md-block">
+      <SectionCoretanVue />
+    </div>
+    <div class="d-md-none d-sm-block">
+      <SectionAgenda />
+      <SectionMentor />
+    </div>
+    <div class="d-md-none d-sm-block">
       <SectionCoretanVue />
     </div>
     <SectionDokumentasiVue />
@@ -88,7 +95,6 @@ html {
   z-index: 0;
   border-bottom-left-radius: 100px;
 }
-
 .tentang {
   width: 100%;
   margin-left: 10px;
@@ -375,5 +381,10 @@ html {
   width: 20px;
   height: 20px;
   margin-right: 5px;
+}
+@media (max-width: 768px) {
+  .sectioncoretan .sectiongabung {
+    background-color: yellowgreen;
+  }
 }
 </style>

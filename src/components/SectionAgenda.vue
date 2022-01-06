@@ -71,6 +71,7 @@ export default {
 #agenda {
   padding-top: 50px;
   padding-bottom: 20px;
+  margin-bottom: -200px;
 }
 .agenda {
   color: #264653;
@@ -87,6 +88,7 @@ export default {
     color: #264653;
     display: flex;
     justify-content: center;
+    margin-top: -300px;
   }
   .agenda h2 {
     font-weight: bold;
