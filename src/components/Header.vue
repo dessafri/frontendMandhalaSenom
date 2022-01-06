@@ -85,9 +85,9 @@
             </div>
           </li> -->
         </ul>
-      </div>
-      <div class="kontak">
-        <button class="btn btn-kontak">Hubungi Kami</button>
+        <div class="kontak">
+          <button class="btn btn-kontak">Hubungi Kami</button>
+        </div>
       </div>
     </div>
   </nav>

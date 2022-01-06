@@ -24,7 +24,9 @@
               Oke
               <i class="fa fa-quote-right" aria-hidden="true"></i>
             </h2>
-            <button class="btn btn-cta">LEBIH LANJUT</button>
+            <button class="btn btn-cta d-none d-md-block">
+              LEBIH LANJUT
+            </button>
           </div>
         </div>
         <div class="animate-navigate d-flex justify-content-center d-lg-none">
@@ -35,7 +37,7 @@
         </div>
       </div>
       <div style="display: flex; justify-content: center;">
-        <div class="infografis text-start">
+        <div class="infografis text-start d-none d-md-flex">
           <infoButton image="crowd.png" jumlah="15" keterangan="MENTOR" />
           <infoButton image="children.png" jumlah="99" keterangan="MENTOR" />
           <infoButton image="books.png" jumlah="1000" keterangan="BUKU" />
