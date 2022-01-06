@@ -12,7 +12,7 @@ export default {
 <style scoped>
 @media (max-width: 768px) {
   h1 {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
     color: #264653 !important;
   }
